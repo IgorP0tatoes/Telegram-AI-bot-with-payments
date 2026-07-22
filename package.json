@@ -1,0 +1,31 @@
+{
+  "name": "tg-ai-bot",
+  "type": "module",
+  "dependencies": {
+    "bullmq": "^5.7.0",
+    "openai": "^4.33.0",
+    "pg": "^8.11.5",
+    "telegraf": "^4.16.3"
+  },
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IgorP0tatoes/kakaxa.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/IgorP0tatoes/kakaxa/issues"
+  },
+  "homepage": "https://github.com/IgorP0tatoes/kakaxa#readme",
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "eslint": "^10.5.0"
+  }
+}
