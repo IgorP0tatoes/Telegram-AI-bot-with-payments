@@ -1,6 +1,7 @@
 В первую очередь это нейрошлюха!! (бот для флирта)
 
-Первые 3 сообщения бот юзает `prompt_flirt`, далее переключается на `prompt_flirthot` для более лучшео удержания дрочера
+Нейрокни работает через API openrouter.ai (оплата зарубеж картой/крипта)
+Первые 3 сообщения бот юзает `prompt_flirt`, далее переключается на `prompt_flirthot` для более лучшего удержания дрочера
 
 ## 🧑‍💻 Функционал 
 
@@ -105,6 +106,7 @@ apt update && apt upgrade -y
 apt install git -y
 git clone https://github.com/IgorP0tatoes/Telegram-AI-bot-with-payments.git
 cd Telegram-AI-bot-with-payments
+mkdir -p src/assets/free_pics
 cp .env.example .env
 nano .env
 ```
@@ -113,7 +115,7 @@ nano .env
 Желательно поменять еще значения `POSTGRES_USER`, `POSTGRES_PASSWORD`, `POSTGRES_DB`, `DATABASE_URL`, но не обязательно
 `REDIS_URL` - можно не трогать
 
-**Запуск через Docker** 
+**Запуск через Docker (VPS/Linux)** 
 База, Redis и бот поднимутся сами в одной сети с нужными healthchecks.
 ```bash
 curl -fsSL https://get.docker.com | sh
