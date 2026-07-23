@@ -47,7 +47,7 @@
   * Форматирует ответ (Markdown/HTML) и отправляет его пользователю, заменяя временную заглушку (`tempMsgId`).
 * `database.js` - **База данных.** CRUD-операции для базы (PostgreSQL). Функции создания юзеров, получения статы и изменения балансов.
 * `platega.js` - **Платежный шлюз.** API Platega, создание инвойсов, проверка статуса, вебхуки.
-* `queue.js` - **Очередь задач..** Защищает от rate-limits. Собирает куски сообщений от AI и скармливает их телеге.
+* `queue.js` - **Очередь задач.** Защищает от rate-limits. Собирает куски сообщений от AI и скармливает их телеге.
 * `broadcast.js` - **Рассылка.** Отдельный воркер, чтобы массовые пуши не блокировали основной цикл бота.
 * `prompts.js` - **Список промптов.** Хранит шаблоны системных промптов для режимов (prompt_flirt, prompt_coder и т.д.).
 * `handlers/profile.js` - Отрисовка профиля и баланса.
@@ -103,11 +103,14 @@ cd Telegram-AI-bot-with-payments
 cp .env.example .env
 nano .env
 ```
-Заполните .env: `BOT_TOKEN`, `OPENROUTER_API_KEY`, `ADMIN_ID`, `PLATEGA_MERCHANT_ID`, `PLATEGA_SECRET`, `DATABASE_URL` и `REDIS_URL` (можно оставить дефолтное значение).
+Заполните .env:
+Обязательно к заполнению: `BOT_TOKEN`, `OPENROUTER_API_KEY`, `ADMIN_ID`, `PLATEGA_MERCHANT_ID`, `PLATEGA_SECRET`
+Желательно поменять еще значения `POSTGRES_USER`, `POSTGRES_PASSWORD`, `POSTGRES_DB`, `DATABASE_URL`, но не обязательно
+`REDIS_URL` - можно не трогать
 
 **Запуск через Docker** 
 База, Redis и бот поднимутся сами в одной сети с нужными healthchecks.
 ```bash
 curl -fsSL https://get.docker.com | sh
-docker compose up -d --build && docker logs -f bot
+docker compose up -d --build && docker logs -f evabot
 ```
