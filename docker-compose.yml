@@ -15,14 +15,14 @@ services:
     image: postgres:15-alpine
     restart: unless-stopped
     environment:
-      POSTGRES_USER: ${POSTGRES_USER:-botuser}
+      POSTGRES_USER: ${POSTGRES_USER:-db_user}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
-      POSTGRES_DB: ${POSTGRES_DB:-botdb}
+      POSTGRES_DB: ${POSTGRES_DB:-db_name}
     volumes:
       - pgdata:/var/lib/postgresql/data
       - ./init.sql:/docker-entrypoint-initdb.d/init.sql
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER:-botuser} -d $${POSTGRES_DB:-botdb}"]
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER:-db_user} -d $${POSTGRES_DB:-db_name}"]
       interval: 5s
       timeout: 5s
       retries: 5
